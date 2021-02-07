@@ -1,0 +1,33 @@
+---
+title: "covid19"
+author: "Jeremy"
+date: "2/2/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Data
+```{r}
+library(ggplot2)
+data <- read.csv('death_gdp.csv')
+```
+
+## Statistical Test
+
+```{r}
+model <- lm(gdp.change ~ death.ratio, data)
+```
+
+```{r}
+summary(model)
+```
+
+```{r}
+ggplot(data, aes(gdp.change, death.ratio, label = country)) +
+  geom_point(aes(colour = country))  + geom_text(check_overlap = TRUE,aes(colour = country)) 
+
+```
+
