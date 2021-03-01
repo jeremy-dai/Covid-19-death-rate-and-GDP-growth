@@ -12,22 +12,29 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Data
 ```{r}
 library(ggplot2)
-data <- read.csv('death_gdp.csv')
+library(ggrepel)
+data <- read.csv('data/death_gdp.csv')
 ```
 
 ## Statistical Test
 
 ```{r}
-model <- lm(gdp.change ~ death.ratio, data)
+cor.test(data$gdp.change, data$death.ratio, method=c("pearson"))
 ```
 
+## Figure
 ```{r}
-summary(model)
-```
-
-```{r}
-ggplot(data, aes(gdp.change, death.ratio, label = country)) +
-  geom_point(aes(colour = country))  + geom_text(check_overlap = TRUE,aes(colour = country)) 
+ggplot(data, aes(gdp.change, death.ratio)) +
+  geom_point(size = 1)  +  # aes(colour = country)
+  # geom_text_repel(aes(label = country),
+  #                 box.padding   = 0.35, 
+  #                 point.padding = 0.5,
+  #                 segment.color = 'grey50') +
+  scale_x_continuous(limits = c(-18,-2)) + 
+  geom_text(aes(label=country), check_overlap = T, hjust=0) +
+  geom_smooth(method='lm', formula= y~x)   +
+  theme_classic() 
+ 
 
 ```
 
