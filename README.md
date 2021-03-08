@@ -12,3 +12,6 @@ This projects looks into the data of Excess Death and GDP growth rate during the
 
 ## Data Descriptions
 The excess death data is compiled by the New York Times, which is the number of actual deaths minus the expected deaths (the expected death is estimated based on historical averages). The number of excess deaths is often used to measure the severity of a large-scale issue such as the pandemic.
+
+## Blog post
+A relevant blog is posted [here](https://www.linkedin.com/pulse/pandemic-peoples-lives-economic-growth-yizhen-jeremy-dai/?trackingId=KFlXdZhYQ5OMy2vlL3iJ4w%3D%3D)
